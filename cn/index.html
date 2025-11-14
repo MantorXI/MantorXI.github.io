@@ -30,11 +30,7 @@
                     </div>
                 </header>
                 <ul id="main-menu" class="main-menu">
-                    <li><a href="#常用推荐" class="smooth"><i class="linecons-star"></i><span class="title">常用推荐</span></a></li>
-                    <li><a href="#视频网站" class="smooth"><i class="linecons-desktop"></i><span class="title">视频网站</span></a></li>
-                    <li><a href="#资源网站" class="smooth"><i class="linecons-thumbs-up"></i><span class="title">资源网站</span></a></li>
-                    <li><a href="#趣味网站" class="smooth"><i class="linecons-lightbulb"></i><span class="title">趣味网站</span></a></li>
-                    <li><a href="about.html"><i class="linecons-heart"></i><span class="tooltip-blue">关于本站</span></a></li>
+                    <!-- 左侧分类栏将由JS动态生成 -->
                 </ul>
             </div>
         </div>
@@ -50,99 +46,75 @@
 
             <!-- 主要内容区域 -->
             <div id="main-content-area">
-                <p>正在从云端加载数据...</p>
+                <!-- JS将在这里动态生成所有内容 -->
             </div>
 
             <footer class="main-footer sticky footer-type-1">
                 <div class="footer-inner">
-                    <div class="footer-text">&copy; 2025 <a href="#"><strong>MantorXI 的个人空间</strong></a></div>
+                    <div class="footer-text">&copy; 2024 <a href="#"><strong>我的导航站</strong></a></div>
                     <div class="go-up"><a href="#" rel="go-top"><i class="fa-angle-up"></i></a></div>
                 </div>
             </footer>
         </div>
     </div>
     
-    <!-- 动态生成内容的脚本 -->
+    <!-- 1. 引入您自己的数据文件 -->
+    <script src="../data.js"></script>
+    
+    <!-- 2. 动态生成内容的脚本 -->
     <script type="text/javascript">
-        // ########## 您唯一需要修改的地方 ##########
-        // 请将下面 '' 中的内容替换为您在第二步中复制的 Google Sheets CSV 发布链接
-        const googleSheetUrl = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vQ_B1aV1yJinrcyZ_7QLCn6BiJ2a5J5zKkxxoVZ4tO3hfB2IpsKz6Sw69Zqsz4sxRaH2Fgo1JknKSrA/pub?output=csv';
-        // #########################################
-
         $(document).ready(function() {
-            if (!googleSheetUrl || googleSheetUrl === '在这里粘贴您发布的Google Sheets CSV链接') {
-                $('#main-content-area').html('<p style="color: red;">错误：请在index.html文件中设置您的Google Sheets链接。</p>');
-                return;
-            }
+            const mainMenu = $('#main-menu');
+            const mainContentArea = $('#main-content-area');
+            const icons = ["linecons-star", "linecons-desktop", "linecons-thumbs-up", "linecons-lightbulb", "linecons-cog", "linecons-doc"]; // 图标库
 
-            fetch(googleSheetUrl)
-                .then(response => response.text())
-                .then(csvText => {
-                    const mainContentArea = $('#main-content-area');
-                    mainContentArea.empty(); // 清空"加载中"提示
+            // 遍历数据，一次性生成左侧栏和右侧内容
+            webstackData.forEach((categoryData, index) => {
+                const categoryName = categoryData.category;
+                const categoryId = categoryName; // 使用分类名作为ID
+                const iconClass = icons[index % icons.length]; // 循环使用图标
 
-                    const rows = csvText.split('\n').slice(1); // 分割行并跳过表头
-                    const categories = {};
+                // 生成左侧分类栏
+                const menuItemHtml = `<li><a href="#${categoryId}" class="smooth"><i class="${iconClass}"></i><span class="title">${categoryName}</span></a></li>`;
+                mainMenu.append(menuItemHtml);
 
-                    rows.forEach(row => {
-                        const columns = row.split(',');
-                        if (columns.length < 5) return; // 跳过无效行
-
-                        const siteData = {
-                            category: columns[0].trim(),
-                            name: columns[1].trim(),
-                            url: columns[2].trim(),
-                            desc: columns[3].trim(),
-                            icon: columns[4].trim()
-                        };
-
-                        if (!categories[siteData.category]) {
-                            categories[siteData.category] = [];
-                        }
-                        categories[siteData.category].push(siteData);
-                    });
-
-                    // 按照侧边栏的顺序生成内容
-                    $('#main-menu').find('a.smooth').each(function() {
-                        const categoryName = $(this).find('.title').text();
-                        if (categories[categoryName]) {
-                             const categoryTitleHtml = `<h4 class="text-gray"><i class="linecons-tag" style="margin-right: 7px;" id="${categoryName}"></i>${categoryName}</h4>`;
-                             mainContentArea.append(categoryTitleHtml);
-
-                             const sitesRow = $('<div class="row"></div>');
-                             categories[categoryName].forEach(site => {
-                                const siteHtml = `
-                                    <div class="col-sm-3">
-                                        <div class="xe-widget xe-conversations box2 label-info" onclick="window.open('${site.url}', '_blank')">
-                                            <div class="xe-comment-entry">
-                                                <a class="xe-user-img">
-                                                    <img data-src="${site.icon}" class="lozad img-circle" width="40">
-                                                </a>
-                                                <div class="xe-comment">
-                                                    <a href="#" class="xe-user-name overflowClip_1"><strong>${site.name}</strong></a>
-                                                    <p class="overflowClip_2">${site.desc}</p>
-                                                </div>
-                                            </div>
+                // 生成右侧内容区
+                const categoryTitleHtml = `<h4 class="text-gray"><i class="linecons-tag" style="margin-right: 7px;" id="${categoryId}"></i>${categoryName}</h4>`;
+                const sitesRow = $('<div class="row"></div>');
+                
+                if (categoryData.sites && categoryData.sites.length > 0) {
+                    categoryData.sites.forEach(site => {
+                        const siteHtml = \`
+                            <div class="col-sm-3">
+                                <div class="xe-widget xe-conversations box2 label-info" onclick="window.open('\${site.url}', '_blank')">
+                                    <div class="xe-comment-entry">
+                                        <a class="xe-user-img">
+                                            <img data-src="\${site.icon}" class="lozad img-circle" width="40" onerror="this.src='../assets/images/logos/default.png';">
+                                        </a>
+                                        <div class="xe-comment">
+                                            <a href="#" class="xe-user-name overflowClip_1"><strong>\${site.name}</strong></a>
+                                            <p class="overflowClip_2">\${site.desc}</p>
                                         </div>
-                                    </div>`;
-                                sitesRow.append(siteHtml);
-                             });
-                             mainContentArea.append(sitesRow);
-                             mainContentArea.append('<br />');
-                        }
+                                    </div>
+                                </div>
+                            </div>\`;
+                        sitesRow.append(siteHtml);
                     });
+                }
+                mainContentArea.append(categoryTitleHtml);
+                mainContentArea.append(sitesRow);
+                mainContentArea.append('<br />');
+            });
+            
+            // 添加固定的“关于”页面链接
+            mainMenu.append('<li><a href="about.html"><i class="linecons-heart"></i><span class="tooltip-blue">关于本站</span></a></li>');
 
-                    // 初始化图片懒加载和其他脚本
-                    lozad().observe();
-                    $("a.smooth").click(function(ev) {
-                        ev.preventDefault();
-                        $("html, body").animate({ scrollTop: $($(this).attr("href")).offset().top - 30 }, { duration: 500, easing: "swing" });
-                    });
-                })
-                .catch(error => {
-                    console.error('加载或解析数据时出错:', error);
-                    $('#main-content-area').html('<p style="color: red;">无法从云端加载数据，请检查链接或网络设置。</p>');
-                });
+            // 初始化图片懒加载和其他脚本
+            lozad().observe();
+            $("a.smooth").click(function(ev) {
+                ev.preventDefault();
+                $("html, body").animate({ scrollTop: $($(this).attr("href")).offset().top - 30 }, { duration: 500, easing: "swing" });
+            });
         });
     </script>
     
