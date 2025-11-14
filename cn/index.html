@@ -66,11 +66,11 @@
     <script type="text/javascript">
         // ########## 您唯一需要修改的地方 ##########
         // 请将下面 '' 中的内容替换为您在第二步中复制的 Google Sheets CSV 发布链接
-        const googleSheetUrl = '在这里粘贴您发布的Google Sheets CSV链接';
+        const googleSheetUrl = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vQ_B1aV1yJinrcyZ_7QLCn6BiJ2a5J5zKkxxoVZ4tO3hfB2IpsKz6Sw69Zqsz4sxRaH2Fgo1JknKSrA/pub?output=csv';
         // #########################################
 
         $(document).ready(function() {
-            if (!googleSheetUrl || googleSheetUrl === 'https://docs.google.com/spreadsheets/d/e/2PACX-1vQ_B1aV1yJinrcyZ_7QLCn6BiJ2a5J5zKkxxoVZ4tO3hfB2IpsKz6Sw69Zqsz4sxRaH2Fgo1JknKSrA/pub?output=csv') {
+            if (!googleSheetUrl || googleSheetUrl === '在这里粘贴您发布的Google Sheets CSV链接') {
                 $('#main-content-area').html('<p style="color: red;">错误：请在index.html文件中设置您的Google Sheets链接。</p>');
                 return;
             }
