@@ -43,5 +43,16 @@ const webstackData = [
                 "icon": "../assets/images/logos/bilibili.png"
             }
         ]
+    },
+    {
+        "category": "资源网站",
+        "sites": [
+            {
+                "name": "Z-Library",
+                "url": "https://zh.z-library.sk/",
+                "desc": "全球最大的数字图书馆之一。",
+                "icon": "../assets/images/logos/zlibrary.png"
+            }
+        ]
     }
 ];
