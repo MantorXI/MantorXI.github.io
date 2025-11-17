@@ -5,8 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>我的个人导航</title>
-    <!-- 修复：将不安全的http链接改为安全的https链接 -->
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Arimo:400,700,400italic">
+    <!-- 已移除不稳定的谷歌字体 -->
     <link rel="shortcut icon" href="../assets/images/favicon.png">
     <link rel="stylesheet" href="../assets/css/fonts/linecons/css/linecons.css">
     <link rel="stylesheet" href="../assets/css/fonts/fontawesome/css/font-awesome.min.css">
@@ -30,9 +29,8 @@
                         <a href="#" data-toggle="mobile-menu"><i class="fa-bars"></i></a>
                     </div>
                 </header>
-                <ul id="main-menu" class="main-menu">
-                    <!-- 左侧分类栏将由JS动态生成 -->
-                </ul>
+                <!-- 关键：左侧菜单是空的，将由下面的脚本动态填充 -->
+                <ul id="main-menu" class="main-menu"></ul>
             </div>
         </div>
         <div class="main-content">
@@ -41,17 +39,16 @@
                     <li class="hidden-sm hidden-xs"><a href="#" data-toggle="sidebar"><i class="fa-bars"></i></a></li>
                 </ul>
                 <ul class="user-info-menu right-links list-inline list-unstyled">
-                    <li class="hidden-sm hidden-xs"><a href="https://github.com/WebStackPage/WebStackPage.github.io" target="_blank"><i class="fa-github"></i> GitHub</a></li>
+                    <li class="hidden-sm hidden-xs"><a href="https://github.com/MantorXI/MantorXI.github.io" target="_blank"><i class="fa-github"></i> GitHub</a></li>
                 </ul>
             </nav>
 
-            <div id="main-content-area">
-                <!-- JS将在这里动态生成所有内容 -->
-            </div>
+            <!-- 关键：主内容区是空的，将由下面的脚本动态填充 -->
+            <div id="main-content-area"></div>
 
             <footer class="main-footer sticky footer-type-1">
                 <div class="footer-inner">
-                    <div class="footer-text">&copy; 2024 <a href="#"><strong>我的导航站</strong></a></div>
+                    <div class="footer-text">&copy; 2025 <a href="#"><strong>MantorXI 个人空间</strong></a></div>
                     <div class="go-up"><a href="#" rel="go-top"><i class="fa-angle-up"></i></a></div>
                 </div>
             </footer>
@@ -64,28 +61,32 @@
     $(document).ready(function() {
         var mainMenu = $('#main-menu');
         var mainContentArea = $('#main-content-area');
-        var icons = ["linecons-star", "linecons-desktop", "linecons-thumbs-up", "linecons-lightbulb", "linecons-cog", "linecons-doc"];
+        // 预设一个图标库，为新分类自动分配图标
+        var icons = ["linecons-star", "linecons-desktop", "linecons-cloud", "linecons-database", "linecons-params", "linecons-lightbulb", "linecons-comment", "linecons-compass", "linecons-paper-plane", "linecons-diamond"];
 
+        // 遍历data.js中的数据，一次性生成左侧栏和右侧内容
         webstackData.forEach(function(categoryData, index) {
             var categoryName = categoryData.category;
-            var categoryId = categoryName;
-            var iconClass = icons[index % icons.length];
+            var categoryId = categoryName; // 使用分类名作为ID
+            var iconClass = icons[index % icons.length]; // 循环使用图标库里的图标
 
+            // 1. 动态生成左侧分类栏
             var menuItemHtml = '<li><a href="#' + categoryId + '" class="smooth"><i class="' + iconClass + '"></i><span class="title">' + categoryName + '</span></a></li>';
             mainMenu.append(menuItemHtml);
 
+            // 2. 动态生成右侧内容区
             var categoryTitleHtml = '<h4 class="text-gray"><i class="linecons-tag" style="margin-right: 7px;" id="' + categoryId + '"></i>' + categoryName + '</h4>';
             var sitesRow = $('<div class="row"></div>');
             
             if (categoryData.sites && categoryData.sites.length > 0) {
                 categoryData.sites.forEach(function(site) {
-                    // 修复：使用传统的字符串拼接，放弃使用反引号 `` 语法
+                    var iconSrc = site.icon && site.icon.trim() !== '' ? site.icon : '../assets/images/logos/default.png';
                     var siteHtml = 
                         '<div class="col-sm-3">' +
                             '<div class="xe-widget xe-conversations box2 label-info" onclick="window.open(\'' + site.url + '\', \'_blank\')">' +
                                 '<div class="xe-comment-entry">' +
                                     '<a class="xe-user-img">' +
-                                        '<img data-src="' + site.icon + '" class="lozad img-circle" width="40" onerror="this.src=\'../assets/images/logos/default.png\';">' +
+                                        '<img data-src="' + iconSrc + '" class="lozad img-circle" width="40" onerror="this.src=\'../assets/images/logos/default.png\';">' +
                                     '</a>' +
                                     '<div class="xe-comment">' +
                                         '<a href="#" class="xe-user-name overflowClip_1"><strong>' + site.name + '</strong></a>' +
@@ -102,16 +103,15 @@
             mainContentArea.append('<br />');
         });
         
+        // 3. 在动态内容生成后，添加固定的“关于”页面链接
         mainMenu.append('<li><a href="about.html"><i class="linecons-heart"></i><span class="tooltip-blue">关于本站</span></a></li>');
 
-        // 初始化所有脚本
+        // 4. 初始化所有脚本
         lozad().observe();
-        
-        // 确保页面元素完全生成后再初始化主题脚本
         if($.isFunction($.fn.xenonCustom)){
             $.fn.xenonCustom();
         }
-
+        // 重新绑定平滑滚动事件
         $("a.smooth").click(function(ev) {
             ev.preventDefault();
             $("html, body").animate({ scrollTop: $($(this).attr("href")).offset().top - 30 }, { duration: 500, easing: "swing" });

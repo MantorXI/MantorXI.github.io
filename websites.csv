@@ -1,18 +1,48 @@
 ﻿Category,Name,URL,Description,Icon
-常用推荐,YouTube,https://www.youtube.com/,全球最大的视频分享平台。,../assets/images/logos/youtube.png
-常用推荐,Z-Library,https://zh.z-library.sk/,全球最大的数字图书馆之一。,../assets/images/logos/zlibrary.png
-趣味网站,Keybr,https://www.keybr.com/,在线打字练习。,../assets/images/logos/keybr.png
-视频网站,Bilibili,https://www.bilibili.com/,国内知名的视频弹幕网站。,../assets/images/logos/bilibili.png
-常用推荐,88看球,http://www.88kq.net/,88看球地址发布页,../assets/images/logos/88kanqiu.png
-视频网站,IYF.TV,https://www.iyf.tv/,爱一番盗版视频网站。,../assets/images/logos/iyftv.png
-视频网站,Libvio,https://www.libvio.link,提供剧集、动漫、综艺等影视内容。,../assets/images/logos/libvio.png
-软件下载,大眼仔旭,https://www.dayanzai.me/,提供各类PC软件、绿色软件、手机游戏、安卓APP、汉化软件及软件教程的下载站点。,../assets/images/logos/dayanzai.png
-视频网站,七味网,https://www.qn63.com/,一站式高清影视资源平台，支持免费在线观看电影、电视剧和动漫。,../assets/images/logos/qwei.png
-游戏下载,Switch520,https://www.520switch.com/,提供免费游戏资源及破解游戏。,../assets/images/logos/switch520.png
-代理工具,一元机场,https://xn--1-q07a56pdss.com/,廉价VPN机场服务。,../assets/images/logos/1yuanjichang.png
-工具,GitHub 文件加速代理,https://gh-proxy.com/,快速访问GitHub Releases、Raw等资源的代理工具，支持大文件下载和自动缓存。,../assets/images/logos/ghproxy.png
-论坛,NodeSeek,https://www.nodeseek.com/,主机爱好者社区论坛，讨论服务器新闻、优惠、开发经验及开源工具。,../assets/images/logos/nodeseek.png
-导航,霂明导航,https://n.mumingfang.com/,创意工作者的优质网址导航，涵盖AI、设计、前端、站长等分类。,../assets/images/logos/muming.png
-代理工具,流量光机场,https://llg01.com/,性价比高的VPN机场。,../assets/images/logos/llgjichang.png
-软件下载,异星软件空间,https://www.yxssp.com/,非营利软件应用库，提供学习用途的软件分享和资源下载。,../assets/images/logos/yxssp.png
-视频网站,网飞猫,https://103.212.99.243:51122/,免费Netflix在线观看,../assets/images/logos/yiyuanjichang.png
+常用推荐,YouTube,https://www.youtube.com/,全球最大的视频分享与发现平台。,../assets/images/logos/youtube.png
+常用推荐,Bilibili,https://www.bilibili.com/,国内知名的视频弹幕与二创社区。,../assets/images/logos/bilibili.png
+常用推荐,88看球,http://www.88kq.net/,体育赛事直播与地址发布页。,../assets/images/logos/88kanqiu.png
+常用推荐,GitHub 文件加速,https://gh-proxy.com/,GitHub文件下载加速代理服务。,../assets/images/logos/ghproxy.png
+AI 工具,Google AI Studio,https://aistudio.google.com/,Google官方AI模型开发与实验平台。,../assets/images/logos/aistudio.png
+AI 工具,ChatGPT,https://chat.openai.com/,OpenAI出品的领先对话式AI模型。,../assets/images/logos/chatgpt.png
+AI 工具,Claude,https://claude.ai/,Anthropic出品的安全对话式AI模型。,../assets/images/logos/claude.png
+AI 工具,Gemini,https://gemini.google.com/,Google出品的多模态对话式AI模型。,../assets/images/logos/gemini.png
+AI 工具,Grok,https://grok.x.ai/,xAI出品，具有实时信息优势的AI。,../assets/images/logos/grok.png
+AI 工具,豆包,https://www.doubao.com/,字节跳动出品的免费AI对话助手。,../assets/images/logos/doubao.png
+AI 工具,DeepSeek,https://www.deepseek.com/,深度求索出品的免费AI对话与编码助手。,../assets/images/logos/deepseek.png
+AI 工具,Perplexity AI,https://www.perplexity.ai/,对话式AI搜索引擎，提供信息来源。,../assets/images/logos/perplexity.png
+影音动漫,YouTube,https://www.youtube.com/,全球最大的视频分享与发现平台。,../assets/images/logos/youtube.png
+影音动漫,Bilibili,https://www.bilibili.com/,国内知名的视频弹幕与二创社区。,../assets/images/logos/bilibili.png
+影音动漫,88看球,http://www.88kq.net/,体育赛事直播与地址发布页。,../assets/images/logos/88kanqiu.png
+影音动漫,IYF.TV,https://www.iyf.tv/,免费在线观看电影、剧集、动漫。,../assets/images/logos/iyftv.png
+影音动漫,Libvio,https://www.libvio.link,免费在线观看电影、剧集、动漫。,../assets/images/logos/libvio.png
+影音动漫,七味网,https://www.qn63.com/,免费在线观看电影、剧集、动漫。,../assets/images/logos/qwei.png
+影音动漫,网飞猫,https://www.ncat24.com/,免费在线观看Netflix等影视内容。,../assets/images/logos/Ncat.png
+软件下载,大眼仔旭,https://www.dayanzai.me/,精选PC软件分享与下载站点。,../assets/images/logos/dayanzai.png
+软件下载,异星软件空间,https://www.yxssp.com/,非营利性学习用途软件分享网站。,../assets/images/logos/yxssp.png
+综合资源,Z-Library,https://zh.z-library.sk/,全球最大的数字图书馆之一。,../assets/images/logos/zlibrary.png
+综合资源,Switch520,https://www.gamer520.com/,免费Switch游戏资源与分享社区。,../assets/images/logos/gamer520.png
+综合资源,优品PPT,https://www.ypppt.com/,情怀满满的免费PPT模板下载站。,../assets/images/logos/ypppt.png
+综合资源,笔趣阁网页版,https://www.bqg200.com/,免费在线小说阅读与下载网站。,../assets/images/logos/bqg200.png
+综合资源,修理百宝箱,https://zh.ifixit.com/,万物修理指南，学习动手解决问题。,../assets/images/logos/ifixit.png
+综合资源,怎么做,https://zh.wikihow.com/%E9%A6%96%E9%A1%B5,生活技能学习，万事指南手册。,../assets/images/logos/howwiki.png
+在线工具,Keybr,https://www.keybr.com/,在线打字练习，提升你的打字速度。,../assets/images/logos/keybr.png
+在线工具,GitHub 文件加速,https://gh-proxy.com/,GitHub文件下载加速代理服务。,../assets/images/logos/ghproxy.png
+在线工具,一块剪贴板,https://ykjtb.com/,跨设备云剪贴板，轻松同步文本。,../assets/images/logos/ykjtb.png
+在线工具,共享文件夹,https://folderport.com/zh,简单安全的在线临时文件共享服务。,../assets/images/logos/folderport.png
+在线工具,Photopea,https://www.photopea.com/,功能强大的免费在线版Photoshop。,../assets/images/logos/photopea.png
+在线工具,在线PS,https://gd-share.cn/4qf7,免费的在线版Photoshop替代工具。,../assets/images/logos/gdPS.png
+在线工具,PDF24 Tools,https://tools.pdf24.org/zh/,免费全能的在线PDF问题解决方案。,../assets/images/logos/PPTtools.png
+在线工具,CloudConvert,https://cloudconvert.com/,全能在线文件转换器，支持超多格式。,../assets/images/logos/cloudconvert.png
+在线工具,Smallpdf,https://smallpdf.com/cn,功能强大的在线PDF处理工具。,../assets/images/logos/smallpdf.png
+在线工具,ILovePDF,https://www.ilovepdf.com/zh-cn,一站式在线PDF解决方案。,../assets/images/logos/ilovepdf.png
+在线工具,ILoveIMG,https://www.iloveimg.com/zh-cn,在线图片处理工具，支持多种图片格式。,../assets/images/logos/iloveimg.png
+在线工具,Temp Mail,https://temp-mail.org/zh/,临时邮箱生成器，保护你的真实邮箱。,../assets/images/logos/tempmail.png
+在线工具,Remove.bg,https://www.remove.bg/,一键智能抠图，完美移除图片背景。,../assets/images/logos/removebg.png
+在线工具,快捷键备忘录,https://hotkeycheatsheet.com/zh,常用软件快捷键查询备忘单。,../assets/images/logos/hotkey.png
+代理工具,一元机场,https://xn--1-q07a56pdss.com/,高性价比的个人网络代理服务。,../assets/images/logos/1yuanjichang.png
+代理工具,流量光机场,https://llg01.com/,高性价比的个人网络代理服务。,../assets/images/logos/llgjichang.png
+社区论坛,NodeSeek,https://www.nodeseek.com/,主机爱好者技术交流与分享社区。,../assets/images/logos/nodeseek.png
+网址导航,霂明导航,https://n.mumingfang.com/,优质的创意工作者网址导航。,../assets/images/logos/muming.png
+网址导航,柒夜导航,https://nav.qinight.com/,简洁高效的个人网址导航。,../assets/images/logos/qiye.png
+网址导航,lks推荐网站合集,https://lkssite.vip/,精选实用有趣的网站合集导航。,../assets/images/logos/lks.png
